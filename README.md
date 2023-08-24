@@ -6,9 +6,9 @@ Materi belajar:
 •	Pengenalan Junit v
 •	Membuat Test v
 •	Menggunakan Assertions v
-•	Mengubah Nama Test
-•	Menonaktifkan Test
-•	Sebelum dan Setelah Test
+•	Mengubah Nama Test v
+•	Menonaktifkan Test v
+•	Sebelum dan Setelah Test v
 •	Membatalkan Test
 •	Menggunakan Assumptions
 •	Test Berdasarkan Kondisi
