@@ -1,8 +1,6 @@
 package pangestu.nugraha.test;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import pangestu.nugraha.test.generator.SimpleDisplayNameGenerator;
 
 //Mengimport Assertions yang static dari junit
@@ -20,6 +18,28 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CalculatorTest {
 
     private Calculator calculator = new Calculator();
+
+    //Materi Sebelum dan Setelah Test
+    @BeforeAll
+    public static void beforeAll(){
+        System.out.println("Before All");
+    }
+
+    @AfterAll
+    public static void afterAll(){
+        System.out.println("After All");
+    }
+
+    //Materi Sebelum dan Setelah Test
+    @BeforeEach
+    public void setUp(){
+        System.out.println("Before Each");
+    }
+
+    @AfterEach
+    public void tearDown(){
+        System.out.println("AfterEach");
+    }
 
     //Contoh membuat method test dengan skenario Sukses
     //Tambahkan @Test untuk menandakan sebgai Unit Test
@@ -75,6 +95,13 @@ public class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> {
             calculator.pembagian(10, 0);
         });
+    }
+
+    //Materi menonaktifkan unit Test dengan menggunakan @Disabled
+    @Test
+    @Disabled
+    public void testComingSoon(){
+
     }
 
 }
