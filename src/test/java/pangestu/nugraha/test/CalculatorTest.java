@@ -1,10 +1,14 @@
 package pangestu.nugraha.test;
 
 import org.junit.jupiter.api.*;
+import org.opentest4j.TestAbortedException;
 import pangestu.nugraha.test.generator.SimpleDisplayNameGenerator;
 
 //Mengimport Assertions yang static dari junit
 import static org.junit.jupiter.api.Assertions.*;
+
+//Mengimport Assumptions
+import static org.junit.jupiter.api.Assumptions.*;
 
 //Materi Mengubah Nama Test, menggunakan @DisplayName. Bisa di tambahkan dalam type dan method.
 
@@ -42,7 +46,7 @@ public class CalculatorTest {
     }
 
     //Contoh membuat method test dengan skenario Sukses
-    //Tambahkan @Test untuk menandakan sebgai Unit Test
+    //Tambahkan @Test untuk menandakan sebagai Unit Test
 
     @Test
     @DisplayName("Jika skenario Success di method add(Integer pertama, Integer kedua)")
@@ -104,4 +108,20 @@ public class CalculatorTest {
 
     }
 
+    //Materi Membatalkan Test menggunakan exception
+    @Test
+    public void testAborted(){
+        //Contoh pengecekan
+        var profile = System.getenv("PROFILE");
+        if (!"DEV".equals(profile)){
+            throw new TestAbortedException("Test Di batalkan karena bukan DEV");
+        }
+    }
+
+    //Materi Membatalkan Test menggunakan Assumptions
+    @Test
+    public void testAssumption(){
+        //Contoh pengecekan tidak perlu menggunakan if
+        assumeTrue("DEV".equals(System.getenv("PROFILE")));
+    }
 }
